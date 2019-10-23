@@ -4,7 +4,7 @@
 #
 Name     : R-gdtools
 Version  : 0.2.1
-Release  : 7
+Release  : 8
 URL      : https://cran.r-project.org/src/contrib/gdtools_0.2.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/gdtools_0.2.1.tar.gz
 Summary  : Useful tools for writing vector graphics devices
@@ -18,6 +18,7 @@ BuildRequires : R-systemfonts
 BuildRequires : buildreq-R
 BuildRequires : pkgconfig(cairo)
 BuildRequires : pkgconfig(freetype2)
+BuildRequires : util-linux
 
 %description
 No detailed description available
@@ -38,10 +39,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571087835
+export SOURCE_DATE_EPOCH=1571836068
 
 %install
-export SOURCE_DATE_EPOCH=1571087835
+export SOURCE_DATE_EPOCH=1571836068
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
