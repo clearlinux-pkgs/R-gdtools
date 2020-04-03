@@ -1,4 +1,3 @@
-0.2.1
+0.2.2
 pkgconfig(cairo)
 pkgconfig(freetype2)
-util-linux
