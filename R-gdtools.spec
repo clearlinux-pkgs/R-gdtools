@@ -4,7 +4,7 @@
 #
 Name     : R-gdtools
 Version  : 0.2.3
-Release  : 19
+Release  : 20
 URL      : https://cran.r-project.org/src/contrib/gdtools_0.2.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/gdtools_0.2.3.tar.gz
 Summary  : Utilities for Graphical Rendering
@@ -47,10 +47,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1609974076
+export SOURCE_DATE_EPOCH=1620763914
 
 %install
-export SOURCE_DATE_EPOCH=1609974076
+export SOURCE_DATE_EPOCH=1620763914
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -126,4 +126,3 @@ R CMD check --no-manual --no-examples --no-codoc gdtools || :
 %defattr(-,root,root,-)
 /usr/lib64/R/library/gdtools/libs/gdtools.so
 /usr/lib64/R/library/gdtools/libs/gdtools.so.avx2
-/usr/lib64/R/library/gdtools/libs/gdtools.so.avx512
