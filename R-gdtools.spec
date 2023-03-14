@@ -4,7 +4,7 @@
 #
 Name     : R-gdtools
 Version  : 0.3.2
-Release  : 37
+Release  : 38
 URL      : https://cran.r-project.org/src/contrib/gdtools_0.3.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/gdtools_0.3.2.tar.gz
 Summary  : Utilities for Graphical Rendering and Fonts Management
@@ -29,9 +29,6 @@ BuildRequires : R-systemfonts
 BuildRequires : buildreq-R
 BuildRequires : pkgconfig(cairo)
 BuildRequires : pkgconfig(freetype2)
-# Suppress stripping binaries
-%define __strip /bin/true
-%define debug_package %{nil}
 
 %description
 formatted strings and to check the availability of a font. 
@@ -67,10 +64,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1678724883
+export SOURCE_DATE_EPOCH=1678821162
 
 %install
-export SOURCE_DATE_EPOCH=1678724883
+export SOURCE_DATE_EPOCH=1678821162
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/R-gdtools
 cp %{_builddir}/gdtools/LICENSE %{buildroot}/usr/share/package-licenses/R-gdtools/8624bcdae55baeef00cd11d5dfcfa60f68710a02 || :
