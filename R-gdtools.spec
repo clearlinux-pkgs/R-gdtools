@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-gdtools
-Version  : 0.3.3
-Release  : 42
-URL      : https://cran.r-project.org/src/contrib/gdtools_0.3.3.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/gdtools_0.3.3.tar.gz
+Version  : 0.3.4
+Release  : 43
+URL      : https://cran.r-project.org/src/contrib/gdtools_0.3.4.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/gdtools_0.3.4.tar.gz
 Summary  : Utilities for Graphical Rendering and Fonts Management
 Group    : Development/Tools
 License  : GPL-3.0
@@ -56,27 +56,30 @@ license components for the R-gdtools package.
 
 %prep
 %setup -q -n gdtools
+pushd ..
+cp -a gdtools buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679941428
+export SOURCE_DATE_EPOCH=1697474820
 
 %install
-export SOURCE_DATE_EPOCH=1679941428
+export SOURCE_DATE_EPOCH=1697474820
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/R-gdtools
 cp %{_builddir}/gdtools/LICENSE %{buildroot}/usr/share/package-licenses/R-gdtools/8624bcdae55baeef00cd11d5dfcfa60f68710a02 || :
-export LANG=C.UTF-8
-export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
-export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
-export AR=gcc-ar
-export RANLIB=gcc-ranlib
-export LDFLAGS="$LDFLAGS  -Wl,-z -Wl,relro"
+LANG=C.UTF-8
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -O3 -flto -fno-semantic-interposition "
+FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -flto -fno-semantic-interposition "
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -flto -fno-semantic-interposition "
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -O3 -flto -fno-semantic-interposition "
+AR=gcc-ar
+RANLIB=gcc-ranlib
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS  -Wl,-z -Wl,relro"
 mkdir -p %{buildroot}/usr/lib64/R/library
 
 mkdir -p ~/.R
@@ -105,6 +108,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
 R CMD check --no-manual --no-examples --no-codoc . || :
 
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
