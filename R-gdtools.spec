@@ -7,7 +7,7 @@
 #
 Name     : R-gdtools
 Version  : 0.4.0
-Release  : 49
+Release  : 50
 URL      : https://cran.r-project.org/src/contrib/gdtools_0.4.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/gdtools_0.4.0.tar.gz
 Summary  : Utilities for Graphical Rendering and Fonts Management
